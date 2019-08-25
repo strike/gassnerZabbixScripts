@@ -52,6 +52,8 @@ for h in hosts:
                         print (name, "Inventory not available.")
 	else: 
 		#If there was an update and the name is not empty
+                if 'name' not in inventory:
+			continue
 		if (name != inventory['name']) and (inventory['name'] != ""):
 			exists = zapi.host.get(filter={"host": inventory['name']})
                         existsFlag=0
